@@ -1,48 +1,50 @@
 import ECSSRule from "../models/ecssRule";
 
-export default class CSS {
-  private static instance: CSS;
-  readonly styleSheet: CSSStyleSheet;
+export const CSSService = (() => {
+  class CSS {
+    private static instance: CSS;
+    readonly styleSheet: CSSStyleSheet;
 
-  private constructor() {
-    const currentSheets = document.styleSheets;
-
-    const empty = currentSheets.length === 0;
-
-    if (!empty) {
-      this.styleSheet = currentSheets[0] as CSSStyleSheet;
-    } else {
+    private constructor() {
       const styleSheet = this.createStyleSheet();
       this.insertStyleSheet(styleSheet);
       this.styleSheet = this.getCSSStyleSheet(styleSheet);
     }
+
+    static getInstance(): CSS {
+      if (CSS.instance) return CSS.instance;
+
+      CSS.instance = new CSS();
+      return CSS.instance;
+    }
+
+    private createStyleSheet(): HTMLStyleElement {
+      const styleSheet = document.createElement("style");
+      styleSheet.setAttribute("data-ec-components", "");
+      return styleSheet;
+    }
+
+    private insertStyleSheet(styleSheet: HTMLStyleElement) {
+      document.getElementsByTagName("head")[0].appendChild(styleSheet);
+    }
+
+    private getCSSStyleSheet(styleSheet: HTMLStyleElement): CSSStyleSheet {
+      return styleSheet.sheet as CSSStyleSheet;
+    }
+
+    public insertCSSRules(selector: string, cssRules: ECSSRule[]) {
+      const rules = cssRules.map((rule) => rule.toString());
+      let rule = `${selector} {`;
+
+      rules.forEach((r) => {
+        rule += r;
+      });
+
+      rule += "}";
+
+      this.styleSheet.insertRule(rule);
+    }
   }
 
-  static getInstance(): CSS {
-    if (CSS.instance) return CSS.instance;
-
-    CSS.instance = new CSS();
-    return CSS.instance;
-  }
-
-  private createStyleSheet(): HTMLStyleElement {
-    return document.createElement("style");
-  }
-
-  private insertStyleSheet(styleSheet: HTMLStyleElement) {
-    document.getElementsByTagName("head")[0].appendChild(styleSheet);
-  }
-
-  private getCSSStyleSheet(styleSheet: HTMLStyleElement): CSSStyleSheet {
-    return styleSheet.sheet as CSSStyleSheet;
-  }
-
-  public insertCSSRule(selector: string, cssRule: ECSSRule) {
-    const rule = cssRule.toString();
-    this.styleSheet.insertRule(`
-        ${selector} {
-            ${rule}
-        }
-    `);
-  }
-}
+  return CSS.getInstance();
+})();
