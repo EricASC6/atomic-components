@@ -1,6 +1,9 @@
-type CSSValue = string | number;
+type CSSValue = string | number | undefined;
+type Display = "static" | "flex" | "grid" | "inline" | undefined;
 
 export interface Common {
   color?: CSSValue;
-  [x: string]: any;
+  display?: Display;
+
+  // [x: string]: any;
 }

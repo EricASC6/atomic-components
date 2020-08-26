@@ -11,6 +11,8 @@ const Test: React.FC<Props> = ({ color, children }) => {
   return <div>{children}</div>;
 };
 
-export const Random = createComponent<Common>();
+type BoxProps = Common;
+
+export const Random = createComponent<BoxProps>();
 
 export default Test;

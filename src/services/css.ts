@@ -1,4 +1,5 @@
 import ECSSRule from "../models/ecssRule";
+import uniqid from "uniqid";
 
 export const CSSService = (() => {
   class CSS {
@@ -32,17 +33,23 @@ export const CSSService = (() => {
       return styleSheet.sheet as CSSStyleSheet;
     }
 
-    public insertCSSRules(selector: string, cssRules: ECSSRule[]) {
-      const rules = cssRules.map((rule) => rule.toString());
-      let rule = `${selector} {`;
+    generateClassName(): string {
+      return uniqid();
+    }
 
-      rules.forEach((r) => {
-        rule += r;
-      });
+    createCSSRule(rules: ECSSRule[]): string {
+      let rule = "";
 
-      rule += "}";
+      rules.forEach((r) => (rule += r.toString()));
+      return rule;
+    }
+
+    insertCSSRuleByClassName(className: string, cssRule: string) {
+      let rule = `.${className} { ${cssRule} }`;
 
       this.styleSheet.insertRule(rule);
+
+      console.log(this.styleSheet);
     }
   }
 
