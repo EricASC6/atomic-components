@@ -1,15 +1,18 @@
 import React from "react";
-import { Random } from "./components/Test";
+import { Box } from "./components/Box";
+import { Text } from "./components/Text";
 
 const App: React.FC = () => {
   return (
     <div>
-      <Random color="yellow" display="inline">
-        Hello
-      </Random>
-      <Random color="yellow" display="inline">
-        Hello
-      </Random>
+      <Box display="flex">
+        <Text as="p" color="blue" lineHeight="150%" textAlign="center">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
+          minus adipisci tempore amet quae in, aut culpa porro reprehenderit
+          sint quam quas libero distinctio autem itaque eos quos impedit
+          maiores!
+        </Text>
+      </Box>
     </div>
   );
 };
