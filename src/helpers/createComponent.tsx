@@ -5,6 +5,7 @@ import { CSSService } from "../services/css";
 import { Common } from "../types/common";
 import { Style } from "../types/style";
 import { Typography } from "../types/typography";
+import { Spacing } from "../types/spacing";
 
 interface CreateComponentArgs {
   defaultHtml?: keyof React.ReactHTML;
@@ -12,7 +13,7 @@ interface CreateComponentArgs {
 
 type ComponentProps<T> = T & { as?: keyof React.ReactHTML };
 
-export const createComponent = <T extends Common | Typography | {}>({
+export const createComponent = <T extends Common | Typography | Spacing | {}>({
   defaultHtml = "div",
 }: CreateComponentArgs = {}) => {
   const Component: React.FC<ComponentProps<T>> = ({

@@ -1,10 +1,11 @@
 import { Properties } from "csstype";
 
-// This is where short hand style props are appended to pre-existing ones
-export interface Style extends React.CSSProperties {
-  bgColor?: Properties["backgroundColor"];
-  bg?: Properties["background"];
-
+export interface Spacing {
+  padding?: Properties["padding"];
+  paddingTop?: Properties["paddingTop"];
+  paddingRight?: Properties["paddingRight"];
+  paddingBottom?: Properties["paddingBottom"];
+  paddingLeft?: Properties["paddingLeft"];
   paddingX?: Properties["padding"];
   paddingY?: Properties["padding"];
   p?: Properties["padding"];
@@ -15,6 +16,11 @@ export interface Style extends React.CSSProperties {
   px?: Properties["padding"];
   py?: Properties["padding"];
 
+  margin?: Properties["margin"];
+  marginTop?: Properties["marginTop"];
+  marginRight?: Properties["marginRight"];
+  marginBottom?: Properties["marginBottom"];
+  marginLeft?: Properties["marginLeft"];
   marginX?: Properties["margin"];
   marginY?: Properties["margin"];
   m?: Properties["margin"];
@@ -25,8 +31,3 @@ export interface Style extends React.CSSProperties {
   mx?: Properties["margin"];
   my?: Properties["margin"];
 }
-
-// list of styles that are available (used in style conversions)
-export type StyleList = {
-  [K in keyof Style]: any;
-};
