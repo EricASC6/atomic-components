@@ -39,4 +39,10 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   mr: "margin-right",
   mb: "margin-bottom",
   ml: "margin-left",
+
+  justifyContent: "justify-content",
+  alignItems: "align-items",
+  flexDirection: "flex-direction",
+  flexWrap: "flex-wrap",
+  order: "order",
 };

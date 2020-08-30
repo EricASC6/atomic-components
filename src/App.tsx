@@ -5,13 +5,16 @@ import { Text } from "./components/Text";
 const App: React.FC = () => {
   return (
     <div>
-      <Box display="flex" p="10px" m="10px">
-        <Text as="p" color="blue" lineHeight="150%" textAlign="center">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
-          minus adipisci tempore amet quae in, aut culpa porro reprehenderit
-          sint quam quas libero distinctio autem itaque eos quos impedit
-          maiores!
-        </Text>
+      <Box display="flex">
+        <Box p="50px" bg="pink" order={3}>
+          1
+        </Box>
+        <Box p="50px" bg="pink" order={2}>
+          2
+        </Box>
+        <Box p="50px" bg="pink" order={1}>
+          3
+        </Box>
       </Box>
     </div>
   );
