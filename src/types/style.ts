@@ -24,6 +24,8 @@ export interface Style extends React.CSSProperties {
   ml?: Properties["marginLeft"];
   mx?: Properties["margin"];
   my?: Properties["margin"];
+
+  size?: Properties["width"];
 }
 
 // list of styles that are available (used in style conversions)

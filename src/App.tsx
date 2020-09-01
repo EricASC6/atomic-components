@@ -6,15 +6,11 @@ const App: React.FC = () => {
   return (
     <div>
       <Box display="flex">
-        <Box p="50px" bg="pink" order={3}>
+        <Box bg="pink" width="125px" height="125px" maxHeight="100px">
           1
         </Box>
-        <Box p="50px" bg="pink" order={2}>
-          2
-        </Box>
-        <Box p="50px" bg="pink" order={1}>
-          3
-        </Box>
+        <Box bg="pink">2</Box>
+        <Box bg="pink">3</Box>
       </Box>
     </div>
   );

@@ -6,6 +6,8 @@ import { Common } from "../types/common";
 import { Style } from "../types/style";
 import { Typography } from "../types/typography";
 import { Spacing } from "../types/spacing";
+import { Flex } from "../types/flex";
+import { Layout } from "../types/layout";
 
 interface CreateComponentArgs {
   defaultHtml?: keyof React.ReactHTML;
@@ -13,9 +15,9 @@ interface CreateComponentArgs {
 
 type ComponentProps<T> = T & { as?: keyof React.ReactHTML };
 
-export const createComponent = <T extends Common | Typography | Spacing | {}>({
-  defaultHtml = "div",
-}: CreateComponentArgs = {}) => {
+export const createComponent = <
+  T extends Common | Typography | Spacing | Flex | Layout
+>({ defaultHtml = "div" }: CreateComponentArgs = {}) => {
   const Component: React.FC<ComponentProps<T>> = ({
     children,
     as = defaultHtml,

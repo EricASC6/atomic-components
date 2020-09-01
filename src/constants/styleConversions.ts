@@ -45,4 +45,11 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   flexDirection: "flex-direction",
   flexWrap: "flex-wrap",
   order: "order",
+
+  width: "width",
+  height: "height",
+  minWidth: "min-width",
+  minHeight: "min-height",
+  maxWidth: "max-width",
+  maxHeight: "max-height",
 };

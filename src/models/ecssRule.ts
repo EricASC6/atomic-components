@@ -37,7 +37,9 @@ export default class ECSSRule {
       case "marginY": {
         return `margin-top: ${value}; margin-bottom: ${value};`;
       }
-
+      case "size": {
+        return `width: ${value}; height: ${value};`;
+      }
       default: {
         const cssProp = STYLE_CONVERSIONS[prop];
         return `${cssProp}: ${value};`;
