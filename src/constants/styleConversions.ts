@@ -52,4 +52,11 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   minHeight: "min-height",
   maxWidth: "max-width",
   maxHeight: "max-height",
+
+  position: "position",
+  zIndex: "z-index",
+  top: "top",
+  right: "right",
+  bottom: "bottom",
+  left: "left",
 };

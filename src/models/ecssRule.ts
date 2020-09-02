@@ -42,6 +42,8 @@ export default class ECSSRule {
       }
       default: {
         const cssProp = STYLE_CONVERSIONS[prop];
+        console.log(value);
+
         return `${cssProp}: ${value};`;
       }
     }
