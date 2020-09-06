@@ -59,4 +59,6 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   right: "right",
   bottom: "bottom",
   left: "left",
+
+  border: "border",
 };
