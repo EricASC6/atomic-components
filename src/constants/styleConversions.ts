@@ -61,4 +61,27 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   left: "left",
 
   border: "border",
+  borderWidth: "border-width",
+  borderStyle: "border-style",
+  borderColor: "border-color",
+  borderRadius: "border-radius",
+  borderTop: "border-top",
+  borderRight: "border-right",
+  borderBottom: "border-bottom",
+  borderLeft: "border-left",
+
+  borderTopWidth: "border-top-width",
+  borderTopStyle: "border-top-style",
+  borderTopColor: "border-top-color",
+  borderRightWidth: "border-right-width",
+  borderRightStyle: "border-right-style",
+  borderRightColor: "border-right-color",
+  borderBottomWidth: "border-bottom-width",
+  borderBottomStyle: "border-bottom-style",
+  borderBottomColor: "border-bottom-color",
+  borderLeftWidth: "border-left-width",
+  borderLeftStyle: "border-left-style",
+  borderLeftColor: "border-left-color",
+
+  boxShadow: "box-shadow",
 };

@@ -7,7 +7,14 @@ import { BorderBox } from "./components/BorderBox";
 const App: React.FC = () => {
   return (
     <div>
-      <BorderBox size="100px" bg="blue" border="5px solid green" />
+      <BorderBox
+        size="100px"
+        bg="white"
+        borderRightWidth="20px"
+        borderRightColor="black"
+        borderRightStyle="solid"
+        boxShadow="0 15px 27px 13px rgba(0, 0, 0, 0.03)"
+      />
     </div>
   );
 };
