@@ -37,6 +37,10 @@ export default class ECSSRule {
       case "marginY": {
         return `margin-top: ${value}; margin-bottom: ${value};`;
       }
+      case "borderX":
+        return `border-right: ${value}; border-left: ${value};`;
+      case "borderY":
+        return `border-top: ${value}; border-bottom: ${value};`;
       case "size": {
         return `width: ${value}; height: ${value};`;
       }

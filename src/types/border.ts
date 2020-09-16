@@ -20,6 +20,14 @@ export interface Border {
   borderLeftWidth?: React.CSSProperties["borderLeftWidth"];
   borderLeftStyle?: React.CSSProperties["borderLeftStyle"];
   borderLeftColor?: React.CSSProperties["borderLeftColor"];
+  borderX?: React.CSSProperties["border"];
+  borderY?: React.CSSProperties["border"];
+
+  borderTopLeftRadius?: React.CSSProperties["borderTopLeftRadius"];
+  borderTopRightRadius?: React.CSSProperties["borderTopRightRadius"];
+  borderBottomLeftRadius?: React.CSSProperties["borderBottomLeftRadius"];
+  borderBottomRightRadius?: React.CSSProperties["borderBottomRightRadius"];
 
   boxShadow?: React.CSSProperties["boxShadow"];
+  textShadow?: React.CSSProperties["textShadow"];
 }

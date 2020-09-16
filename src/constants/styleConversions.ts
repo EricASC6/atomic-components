@@ -42,8 +42,14 @@ export const STYLE_CONVERSIONS: StyleConversion = {
 
   justifyContent: "justify-content",
   alignItems: "align-items",
+  alignContent: "align-content",
+  alignSelf: "align-self",
   flexDirection: "flex-direction",
   flexWrap: "flex-wrap",
+  flex: "flex",
+  flexGrow: "flex-grow",
+  flexBasis: "flex-basis",
+  flexShrink: "flex-shrink",
   order: "order",
 
   width: "width",
@@ -83,5 +89,11 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   borderLeftStyle: "border-left-style",
   borderLeftColor: "border-left-color",
 
+  borderTopLeftRadius: "border-top-left-radius",
+  borderTopRightRadius: "border-top-right-radius",
+  borderBottomLeftRadius: "border-bottom-left-radius",
+  borderBottomRightRadius: "border-bottom-right-radius",
+
   boxShadow: "box-shadow",
+  textShadow: "text-shadow",
 };
