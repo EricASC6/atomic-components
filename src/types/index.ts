@@ -5,6 +5,7 @@ import { Position as _Position } from "./position";
 import { Spacing as _Spacing } from "./spacing";
 import { Typography as _Typography } from "./typography";
 import { Border as _Border } from "./border";
+import { Grid as _Grid } from "./grid";
 
 export type Common = _Common;
 export type Flex = _Flex;
@@ -13,3 +14,4 @@ export type Position = _Position;
 export type Spacing = _Spacing;
 export type Typography = _Typography;
 export type Border = _Border;
+export type Grid = _Grid;

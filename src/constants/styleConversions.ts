@@ -96,4 +96,11 @@ export const STYLE_CONVERSIONS: StyleConversion = {
 
   boxShadow: "box-shadow",
   textShadow: "text-shadow",
+
+  gridTemplateColumns: "grid-template-columns",
+  gridTemplateRows: "grid-template-rows",
+  gridColumnStart: "grid-column-start",
+  gridColumnEnd: "grid-column-end",
+  gridRowStart: "grid-row-start",
+  gridRowEnd: "grid-row-end",
 };

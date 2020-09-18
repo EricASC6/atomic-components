@@ -1,9 +1,6 @@
-import { Common } from "../types/common";
-import { Spacing } from "../types/spacing";
-import { Flex } from "../types/flex";
-import { Layout } from "../types/layout";
 import { createComponent } from "../helpers/createComponent";
+import { Common, Spacing, Flex, Layout, Grid } from "../types";
 
-export type BoxProps = Common & Spacing & Flex & Layout;
+export type BoxProps = Common & Spacing & Flex & Layout & Grid;
 
 export const Box = createComponent<BoxProps>();
