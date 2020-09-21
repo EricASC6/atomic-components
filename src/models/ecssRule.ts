@@ -1,7 +1,7 @@
 import { STYLE_CONVERSIONS } from "../constants/styleConversions";
-import { Style } from "../types/style";
+import { AllStyleProps } from "../types/style";
 
-type CSSProp = keyof Style;
+type CSSProp = keyof AllStyleProps;
 
 interface CSSRuleArgs {
   prop: CSSProp;
@@ -17,39 +17,35 @@ export default class ECSSRule {
     this.value = value;
   }
 
-  toString() {
+  toJSON() {
     const { prop, value } = this;
 
-    switch (prop) {
-      case "px":
-      case "paddingX": {
-        return `padding-right: ${value}; padding-left: ${value};`;
-      }
-      case "py":
-      case "paddingY": {
-        return `padding-top: ${value}; padding-bottom: ${value};`;
-      }
-      case "mx":
-      case "marginX": {
-        return `margin-left: ${value}; margin-right: ${value};`;
-      }
-      case "my":
-      case "marginY": {
-        return `margin-top: ${value}; margin-bottom: ${value};`;
-      }
-      case "borderX":
-        return `border-right: ${value}; border-left: ${value};`;
-      case "borderY":
-        return `border-top: ${value}; border-bottom: ${value};`;
-      case "size": {
-        return `width: ${value}; height: ${value};`;
-      }
-      default: {
-        const cssProp = STYLE_CONVERSIONS[prop];
-        console.log(value);
+    let json: any = {};
 
-        return `${cssProp}: ${value};`;
-      }
+    const cssProp = STYLE_CONVERSIONS[prop].toCSS;
+    const propIsArray = Array.isArray(cssProp);
+
+    if (propIsArray) {
+      (cssProp as string[]).forEach((cssField) => {
+        json[cssField] = value;
+      });
+    } else {
+      json[cssProp as string] = value;
     }
+
+    console.log({ json });
+
+    return json;
+  }
+
+  toString() {
+    let str = "";
+    const json = this.toJSON();
+
+    for (let key in json) {
+      str += `${key}: ${json[key]};`;
+    }
+
+    return str;
   }
 }

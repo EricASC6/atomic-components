@@ -1,32 +1,24 @@
 import React from "react";
 import { createStyleList } from "./styles";
 import { CSSService } from "../services/css";
-import { Common } from "../types/common";
-import { Typography } from "../types/typography";
-import { Spacing } from "../types/spacing";
-import { Flex } from "../types/flex";
-import { Layout } from "../types/layout";
-import { Position } from "../types/position";
-import { Grid } from "../types/grid";
 
-interface CreateComponentArgs {
+interface CreateComponentArgs<T> {
   defaultHtml?: keyof React.ReactHTML;
-  defaultProps?: AllStyleProps;
+  defaultProps?: CreateComponentDefaultProps<T>;
 }
 
-type ComponentProps<T> = T & { as?: keyof React.ReactHTML };
+type CreateComponentDefaultProps<T = {}> = {
+  [K in keyof T]?: T[K];
+};
 
-type AllStyleProps = Common &
-  Typography &
-  Spacing &
-  Flex &
-  Layout &
-  Position &
-  Grid;
+type ComponentProps<T> = { [K in keyof T]?: T[K] } & {
+  as?: keyof React.ReactHTML;
+};
 
-export const createComponent = <
-  T extends Common | Typography | Spacing | Flex | Layout | (Position & Grid)
->({ defaultHtml = "div", defaultProps = {} }: CreateComponentArgs = {}) => {
+export const createComponent = <T extends {}>({
+  defaultHtml = "div",
+  defaultProps = {},
+}: CreateComponentArgs<T> = {}) => {
   const Component: React.FC<ComponentProps<T>> = ({
     children,
     as = defaultHtml,
@@ -37,7 +29,7 @@ export const createComponent = <
     console.log({ styles });
 
     // final styles with default styles applied
-    // apply default if missing style prop else overrid
+    // apply default if missing style prop else override
     const finalStyles = Object.assign({}, defaultProps, styles);
 
     console.log({ finalStyles });
