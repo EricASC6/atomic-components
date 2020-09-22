@@ -1,5 +1,6 @@
 import ECSSRule from "../models/ecssRule";
 import { AllStyleProps } from "../types/style";
+import { Theme } from "../types/theme";
 
 type CSSRule = {
   [K in keyof AllStyleProps]?: AllStyleProps[K];
@@ -39,11 +40,13 @@ export const CSSService = (() => {
       return ruleStr;
     }
 
-    createCSSRule(rules: ECSSRule[]): CSSRule {
+    createCSSRule(rules: ECSSRule[], theme: Theme): CSSRule {
       let cssRule: any = {};
 
       rules.forEach((rule) => {
-        cssRule = Object.assign(cssRule, rule.toJSON());
+        const json = rule.toJSON(theme);
+
+        cssRule = Object.assign(cssRule, json);
       });
 
       return cssRule;

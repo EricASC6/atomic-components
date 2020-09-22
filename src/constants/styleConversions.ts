@@ -1,9 +1,13 @@
 import { AllStyleProps } from "../types/style";
+import { Theme } from "../types/theme";
 
 type StyleConversion = {
   [K in keyof AllStyleProps]: {
     toCSS: string | string[];
     defaultUnit?: string;
+    theme?: {
+      name: keyof Theme;
+    };
   };
 };
 
@@ -111,6 +115,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   backgroundColor: {
     toCSS: "background-color",
+    theme: {
+      name: "colors",
+    },
   },
   background: {
     toCSS: "background",

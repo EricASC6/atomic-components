@@ -1,5 +1,6 @@
 import { STYLE_CONVERSIONS } from "../constants/styleConversions";
 import { AllStyleProps } from "../types/style";
+import { Theme } from "../types/theme";
 
 type CSSProp = keyof AllStyleProps;
 
@@ -17,28 +18,40 @@ export default class ECSSRule {
     this.value = value;
   }
 
-  toJSON() {
+  toJSON(theme?: Theme) {
     const { prop, value } = this;
 
     let json: any = {};
 
-    const cssProp = STYLE_CONVERSIONS[prop].toCSS;
+    const cssPropData = STYLE_CONVERSIONS[prop];
+    const cssProp = cssPropData.toCSS;
     const propIsArray = Array.isArray(cssProp);
+
+    let val: any = value;
+    const hasTheme = Boolean(theme && cssPropData.theme);
+    if (hasTheme) {
+      const themeName = cssPropData.theme?.name!;
+      const themeField = theme![themeName];
+
+      const isThemeValue = Object.keys(themeField).includes(value);
+
+      val = isThemeValue ? themeField[value] : value;
+    }
 
     if (propIsArray) {
       (cssProp as string[]).forEach((cssField) => {
-        json[cssField] = value;
+        json[cssField] = val;
       });
     } else {
-      json[cssProp as string] = value;
+      json[cssProp as string] = val;
     }
 
     return json;
   }
 
-  toString() {
+  toString(theme?: Theme) {
     let str = "";
-    const json = this.toJSON();
+    const json = theme ? this.toJSON(theme) : this.toJSON();
 
     for (let key in json) {
       str += `${key}: ${json[key]};`;

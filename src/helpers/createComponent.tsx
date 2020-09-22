@@ -3,6 +3,7 @@ import { createStyleList } from "./styles";
 import { CSSService } from "../services/css";
 import { StyleStore } from "../services/styleStore";
 import hash from "object-hash";
+import { useTheme } from "../hooks/theme";
 
 interface CreateComponentArgs<T> {
   defaultHtml?: keyof React.ReactHTML;
@@ -26,6 +27,10 @@ export const createComponent = <T extends {}>({
     as = defaultHtml,
     ...props
   }) => {
+    const theme = useTheme();
+
+    // console.log({ theme });
+
     const styles = props;
 
     // final styles with default styles applied
@@ -36,7 +41,7 @@ export const createComponent = <T extends {}>({
 
     const styleList = createStyleList(finalStyles);
 
-    const cssRule = CSSService.createCSSRule(styleList);
+    const cssRule = CSSService.createCSSRule(styleList, theme);
     const emptyCssRule = CSSService.isCSSRuleEmpty(cssRule);
 
     if (!emptyCssRule) {
