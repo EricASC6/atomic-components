@@ -33,8 +33,6 @@ export default class ECSSRule {
       json[cssProp as string] = value;
     }
 
-    console.log({ json });
-
     return json;
   }
 

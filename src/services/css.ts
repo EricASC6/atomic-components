@@ -1,22 +1,18 @@
 import ECSSRule from "../models/ecssRule";
-import uniqid from "uniqid";
+import { AllStyleProps } from "../types/style";
+
+type CSSRule = {
+  [K in keyof AllStyleProps]?: AllStyleProps[K];
+};
 
 export const CSSService = (() => {
   class CSS {
-    private static instance: CSS;
     readonly styleSheet: CSSStyleSheet;
 
-    private constructor() {
+    constructor() {
       const styleSheet = this.createStyleSheet();
       this.insertStyleSheet(styleSheet);
       this.styleSheet = this.getCSSStyleSheet(styleSheet);
-    }
-
-    static getInstance(): CSS {
-      if (CSS.instance) return CSS.instance;
-
-      CSS.instance = new CSS();
-      return CSS.instance;
     }
 
     private createStyleSheet(): HTMLStyleElement {
@@ -33,23 +29,39 @@ export const CSSService = (() => {
       return styleSheet.sheet as CSSStyleSheet;
     }
 
-    generateClassName(): string {
-      return uniqid();
+    private convertCSSRuleToString(cssRule: CSSRule): string {
+      let ruleStr = "";
+
+      for (let [key, value] of Object.entries(cssRule)) {
+        ruleStr += `${key}: ${value};`;
+      }
+
+      return ruleStr;
     }
 
-    createCSSRule(rules: ECSSRule[]): string {
-      let rule = "";
+    createCSSRule(rules: ECSSRule[]): CSSRule {
+      let cssRule: any = {};
 
-      rules.forEach((r) => (rule += r.toString()));
-      return rule;
+      rules.forEach((rule) => {
+        cssRule = Object.assign(cssRule, rule.toJSON());
+      });
+
+      return cssRule;
     }
 
-    insertCSSRuleByClassName(className: string, cssRule: string) {
-      let rule = `.${className} { ${cssRule} }`;
+    isCSSRuleEmpty(cssRule: CSSRule): boolean {
+      const keys = Object.keys(cssRule);
+      return keys.length === 0;
+    }
+
+    insertCSSRuleByClassName(className: string, cssRule: CSSRule) {
+      const cssRuleStr = this.convertCSSRuleToString(cssRule);
+
+      let rule = `.${className} { ${cssRuleStr} }`;
 
       this.styleSheet.insertRule(rule);
     }
   }
 
-  return CSS.getInstance();
+  return new CSS();
 })();
