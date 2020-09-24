@@ -8,6 +8,7 @@ import { useTheme } from "../hooks/theme";
 interface CreateComponentArgs<T> {
   defaultHtml?: keyof React.ReactHTML;
   defaultProps?: CreateComponentDefaultProps<T>;
+  classNamePrefix?: string;
 }
 
 type CreateComponentDefaultProps<T = {}> = {
@@ -21,6 +22,7 @@ type ComponentProps<T> = { [K in keyof T]?: T[K] } & {
 export const createComponent = <T extends {}>({
   defaultHtml = "div",
   defaultProps = {},
+  classNamePrefix,
 }: CreateComponentArgs<T> = {}) => {
   const Component: React.FC<ComponentProps<T>> = ({
     children,
@@ -60,7 +62,9 @@ export const createComponent = <T extends {}>({
         className = StyleStore.getClassName(ruleHash)!;
       } else {
         // new style -> insert new css rule + generate new classname
-        className = StyleStore.generateClassName();
+        className = classNamePrefix
+          ? StyleStore.generateClassName(classNamePrefix)
+          : StyleStore.generateClassName();
         StyleStore.insertClassName(ruleHash, className);
         CSSService.insertCSSRuleByClassName(className, cssRule);
       }

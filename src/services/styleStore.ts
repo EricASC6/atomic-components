@@ -13,8 +13,8 @@ export const StyleStore = (() => {
       return this.store.has(hash);
     }
 
-    generateClassName(): string {
-      return uniqid();
+    generateClassName(prefix?: string): string {
+      return prefix ? uniqid(prefix + "_") : uniqid();
     }
 
     insertClassName(hash: string, className: string) {

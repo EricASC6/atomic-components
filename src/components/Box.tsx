@@ -3,4 +3,4 @@ import { Common, Spacing, Flex, Layout, Grid } from "../types";
 
 export type BoxProps = Common & Spacing & Flex & Layout & Grid;
 
-export const Box = createComponent<BoxProps>();
+export const Box = createComponent<BoxProps>({ classNamePrefix: "BOX" });
