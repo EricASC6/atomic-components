@@ -6,5 +6,6 @@ import { Spacing } from "../types/spacing";
 type TextProps = Common & Typography & Spacing;
 
 export const Text = createComponent<TextProps>({
-  defaultHtml: "h1",
+  defaultHtml: "h2",
+  classNamePrefix: "TEXT",
 });

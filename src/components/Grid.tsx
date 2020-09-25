@@ -7,4 +7,5 @@ export const Grid = createComponent<GridProps>({
   defaultProps: {
     display: "grid",
   },
+  classNamePrefix: "GRID",
 });

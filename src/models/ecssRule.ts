@@ -29,13 +29,23 @@ export default class ECSSRule {
 
     let val: any = value;
     const hasTheme = Boolean(theme && cssPropData.theme);
+
     if (hasTheme) {
       const themeName = cssPropData.theme?.name!;
       const themeField = theme![themeName];
 
-      const isThemeValue = Object.keys(themeField).includes(value);
+      console.log(themeField);
+      console.log(Object.keys(themeField));
 
-      val = isThemeValue ? themeField[value] : value;
+      // spacing theme fields support both strs and numbers but the keys are strs
+      // convert value to avoid failing the isThemeValue test
+      const valueStr = new String(value).toString();
+      const isThemeValue = Object.keys(themeField).includes(valueStr);
+
+      console.log(value);
+      console.log(isThemeValue);
+
+      val = isThemeValue ? themeField[value as keyof typeof themeField] : value;
     }
 
     if (propIsArray) {

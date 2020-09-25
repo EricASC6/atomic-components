@@ -99,9 +99,25 @@ export type Theme = {
     pink700: string;
     pink800: string;
     pink900: string;
-
-    [prop: string]: any;
   };
-} & { [prop: string]: any };
+
+  spacing: {
+    1: string;
+    2: string;
+    3: string;
+    4: string;
+    5: string;
+    6: string;
+    8: string;
+    10: string;
+    12: string;
+    16: string;
+    20: string;
+    24: string;
+    32: string;
+    40: string;
+  };
+};
 
 export type ColorTheme<T> = keyof Theme["colors"] | T;
+export type SpacingTheme<T> = keyof Theme["spacing"] | T;

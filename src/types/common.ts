@@ -6,7 +6,7 @@ export interface Common {
   display: Properties["display"];
   opacity: Properties["opacity"];
   backgroundColor: ColorTheme<Properties["backgroundColor"]>;
-  background: Properties["background"];
-  bgColor: Properties["backgroundColor"];
-  bg: Properties["background"];
+  background: ColorTheme<Properties["background"]>;
+  bgColor: ColorTheme<Properties["backgroundColor"]>;
+  bg: ColorTheme<Properties["background"]>;
 }

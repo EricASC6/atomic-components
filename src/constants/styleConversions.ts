@@ -25,6 +25,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   borderColor: {
     toCSS: "border-color",
+    theme: {
+      name: "colors",
+    },
   },
   borderRadius: {
     toCSS: "border-radius",
@@ -50,6 +53,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   borderTopColor: {
     toCSS: "border-top-color",
+    theme: {
+      name: "colors",
+    },
   },
   borderRightWidth: {
     toCSS: "border-right-width",
@@ -60,6 +66,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   borderRightColor: {
     toCSS: "border-right-color",
+    theme: {
+      name: "colors",
+    },
   },
   borderBottomWidth: {
     toCSS: "border-bottom-width",
@@ -70,6 +79,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   borderBottomColor: {
     toCSS: "border-bottom-color",
+    theme: {
+      name: "colors",
+    },
   },
   borderLeftWidth: {
     toCSS: "border-left-width",
@@ -80,6 +92,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   borderLeftColor: {
     toCSS: "border-left-color",
+    theme: {
+      name: "colors",
+    },
   },
   borderX: {
     toCSS: ["border-right", "border-left"],
@@ -106,6 +121,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   // common
   color: {
     toCSS: "color",
+    theme: {
+      name: "colors",
+    },
   },
   display: {
     toCSS: "display",
@@ -121,12 +139,21 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   background: {
     toCSS: "background",
+    theme: {
+      name: "colors",
+    },
   },
   bgColor: {
     toCSS: "background-color",
+    theme: {
+      name: "colors",
+    },
   },
   bg: {
     toCSS: "background",
+    theme: {
+      name: "colors",
+    },
   },
   // flex
   justifyContent: {
@@ -252,116 +279,202 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   padding: {
     toCSS: "padding",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   paddingTop: {
     toCSS: "padding-top",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   paddingRight: {
     toCSS: "padding-right",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   paddingBottom: {
     toCSS: "padding-bottom",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   paddingLeft: {
     toCSS: "padding-left",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   paddingX: {
     toCSS: ["padding-right", "padding-left"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   paddingY: {
     toCSS: ["padding-top", "padding-bottom"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   p: {
     toCSS: "padding",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   pt: {
     toCSS: "padding-top",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   pr: {
     toCSS: "padding-right",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   pb: {
     toCSS: "padding-bottom",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   pl: {
     toCSS: "padding-left",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   px: {
     toCSS: ["padding-right", "padding-left"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   py: {
     toCSS: ["padding-top", "padding-bottom"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
 
   margin: {
     toCSS: "margin",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   marginTop: {
     toCSS: "margin-top",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   marginRight: {
     toCSS: "margin-right",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   marginBottom: {
     toCSS: "margin-bottom",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   marginLeft: {
     toCSS: "margin-left",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   marginX: {
     toCSS: ["margin-right", "margin-left"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   marginY: {
     toCSS: ["margin-top", "margin-bottom"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   m: {
     toCSS: "margin",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   mt: {
     toCSS: "margin-top",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   mr: {
     toCSS: "margin-right",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   mb: {
     toCSS: "margin-bottom",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   ml: {
     toCSS: "margin-left",
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   mx: {
     toCSS: ["margin-right", "margin-left"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
   my: {
     toCSS: ["margin-top", "margin-bottom"],
     defaultUnit: "px",
+    theme: {
+      name: "spacing",
+    },
   },
+
+  // typography
   fontFamily: {
     toCSS: "font-family",
   },

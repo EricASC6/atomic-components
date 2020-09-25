@@ -52,8 +52,6 @@ export const createComponent = <T extends {}>({
       // generate rule hash -> same rule objects should have the same hash
       const ruleHash = hash(cssRule);
 
-      console.log({ hash: ruleHash });
-
       let className: string;
       const isExistingStyle = StyleStore.isExistingStyle(ruleHash);
 
