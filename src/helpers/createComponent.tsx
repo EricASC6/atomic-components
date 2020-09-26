@@ -29,7 +29,7 @@ export const createComponent = <T extends {}>({
     as = defaultHtml,
     ...props
   }) => {
-    const theme = useTheme();
+    const { theme } = useTheme();
 
     // console.log({ theme });
 

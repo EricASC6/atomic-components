@@ -120,4 +120,4 @@ export type Theme = {
 };
 
 export type ColorTheme<T> = keyof Theme["colors"] | T;
-export type SpacingTheme<T> = keyof Theme["spacing"] | T;
+export type SpacingTheme<T> = keyof Theme["spacing"] | number | T;

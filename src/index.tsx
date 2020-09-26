@@ -6,7 +6,14 @@ import { ThemeProvider } from "./providers/ThemeProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
+    <ThemeProvider
+      theme={{
+        colors: {
+          main: "#fff",
+        },
+        dark: false,
+      }}
+    >
       <App />
     </ThemeProvider>
   </React.StrictMode>,

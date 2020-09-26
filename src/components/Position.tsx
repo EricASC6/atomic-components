@@ -5,4 +5,7 @@ type PositionProps = IPosition;
 
 export const Position = createComponent<PositionProps>({
   classNamePrefix: "POSITION",
+  defaultProps: {
+    position: "relative",
+  },
 });

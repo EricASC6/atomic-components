@@ -28,7 +28,9 @@ export default class ECSSRule {
     const propIsArray = Array.isArray(cssProp);
 
     let val: any = value;
+
     const hasTheme = Boolean(theme && cssPropData.theme);
+    const defaultUnit = cssPropData.defaultUnit;
 
     if (hasTheme) {
       const themeName = cssPropData.theme?.name!;
@@ -46,6 +48,10 @@ export default class ECSSRule {
       console.log(isThemeValue);
 
       val = isThemeValue ? themeField[value as keyof typeof themeField] : value;
+    }
+
+    if (defaultUnit && typeof val === "number") {
+      val = val + defaultUnit;
     }
 
     if (propIsArray) {

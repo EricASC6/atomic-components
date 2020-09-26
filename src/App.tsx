@@ -1,10 +1,35 @@
 import React from "react";
-import { Box, Text, BorderBox } from "./components";
+import { Text } from "./components";
+import { useTheme } from "./hooks/theme";
 
 const App: React.FC = () => {
+  const { theme, changeTheme } = useTheme();
+
+  console.log(theme);
+
+  const handleClick = () => {
+    if (theme.dark) {
+      changeTheme({
+        colors: {
+          main: "#fff",
+        },
+        dark: false,
+      });
+    } else {
+      changeTheme({
+        colors: {
+          main: "#000",
+        },
+        dark: true,
+      });
+    }
+  };
+
   return (
     <div style={{ width: "100%" }}>
-      <Box mt={2} bg="orange400" />
+      <Text color="main">Hello</Text>
+
+      <button onClick={handleClick}>Change theme</button>
     </div>
   );
 };
