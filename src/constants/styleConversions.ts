@@ -223,6 +223,23 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   gap: {
     toCSS: "gap",
   },
+  gridAutoFlow: {
+    toCSS: "grid-auto-flow",
+  },
+  gridAutoColumns: {
+    toCSS: "grid-auto-columns",
+    defaultUnit: "px",
+  },
+  gridAutoRows: {
+    toCSS: "grid-auto-rows",
+    defaultUnit: "px",
+  },
+  gridTemplateAreas: {
+    toCSS: "grid-template-areas",
+  },
+  gridArea: {
+    toCSS: "grid-area",
+  },
   // layout
   width: {
     toCSS: "width",

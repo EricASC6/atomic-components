@@ -18,6 +18,7 @@ export const CSSService = (() => {
 
     private createStyleSheet(): HTMLStyleElement {
       const styleSheet = document.createElement("style");
+      styleSheet.setAttribute("type", "text/css");
       styleSheet.setAttribute("data-ec-components", "");
       return styleSheet;
     }
