@@ -5,6 +5,7 @@ type StyleConversion = {
   [K in keyof AllStyleProps]: {
     toCSS: string | string[];
     defaultUnit?: string;
+    enclosedByQuotes?: boolean;
     theme?: {
       name: keyof Theme;
     };
@@ -105,15 +106,19 @@ export const STYLE_CONVERSIONS: StyleConversion = {
 
   borderTopLeftRadius: {
     toCSS: "border-top-left-radius",
+    defaultUnit: "px",
   },
   borderTopRightRadius: {
     toCSS: "border-top-right-radius",
+    defaultUnit: "px",
   },
   borderBottomLeftRadius: {
     toCSS: "border-bottom-left-radius",
+    defaultUnit: "px",
   },
   borderBottomRightRadius: {
     toCSS: "border-bottom-right-radius",
+    defaultUnit: "px",
   },
   boxShadow: { toCSS: "box-shadow" },
   textShadow: { toCSS: "text-shadow" },
@@ -216,12 +221,15 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   columnGap: {
     toCSS: "column-gap",
+    defaultUnit: "px",
   },
   rowGap: {
     toCSS: "row-gap",
+    defaultUnit: "px",
   },
   gap: {
     toCSS: "gap",
+    defaultUnit: "px",
   },
   gridAutoFlow: {
     toCSS: "grid-auto-flow",
@@ -236,6 +244,7 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   },
   gridTemplateAreas: {
     toCSS: "grid-template-areas",
+    enclosedByQuotes: true,
   },
   gridArea: {
     toCSS: "grid-area",
@@ -498,6 +507,9 @@ export const STYLE_CONVERSIONS: StyleConversion = {
   fontSize: {
     toCSS: "font-size",
     defaultUnit: "px",
+    theme: {
+      name: "font",
+    },
   },
   fontWeight: {
     toCSS: "font-weight",

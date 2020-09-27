@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Grid } from "./components";
+import { Text, Grid, BorderBox, Box } from "./components";
 import { useTheme } from "./hooks/theme";
 
 const App: React.FC = () => {
@@ -27,15 +27,11 @@ const App: React.FC = () => {
 
   return (
     <div style={{ width: "100%" }}>
-      <Text color="main">Hello</Text>
-      <Grid
-        gridAutoFlow="column"
-        gridAutoColumns={10}
-        gridAutoRows={12}
-        gridTemplateAreas="header header"
-        gridArea="whatsup"
-      />
-      <button onClick={handleClick}>Change theme</button>
+      <Text fontSize={12}>Hello World</Text>
+
+      {/* <Text color="main">Hello</Text>
+      <BorderBox size={50} bg="orange400" />
+      <button onClick={handleClick}>Change theme</button> */}
     </div>
   );
 };

@@ -117,7 +117,28 @@ export type Theme = {
     32: string;
     40: string;
   };
+
+  font: {
+    12: string;
+    14: string;
+    16: string;
+    18: string;
+    20: string;
+    24: string;
+    28: string;
+    32: string;
+    36: string;
+    42: string;
+    48: string;
+    54: string;
+    60: string;
+    68: string;
+    76: string;
+    84: string;
+    92: string;
+  };
 };
 
 export type ColorTheme<T> = keyof Theme["colors"] | T;
 export type SpacingTheme<T> = keyof Theme["spacing"] | number | T;
+export type FontTheme<T> = keyof Theme["font"] | number | T;

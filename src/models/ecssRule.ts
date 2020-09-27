@@ -24,13 +24,13 @@ export default class ECSSRule {
     let json: any = {};
 
     const cssPropData = STYLE_CONVERSIONS[prop];
-    const cssProp = cssPropData.toCSS;
+    const { toCSS: cssProp, defaultUnit, enclosedByQuotes } = cssPropData;
+
     const propIsArray = Array.isArray(cssProp);
 
-    let val: any = value;
+    let val: any = enclosedByQuotes ? `"${value}"` : value;
 
     const hasTheme = Boolean(theme && cssPropData.theme);
-    const defaultUnit = cssPropData.defaultUnit;
 
     if (hasTheme) {
       const themeName = cssPropData.theme?.name!;
