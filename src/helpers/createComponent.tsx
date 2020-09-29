@@ -4,6 +4,8 @@ import { CSSService } from "../services/css";
 import { StyleStore } from "../services/styleStore";
 import hash from "object-hash";
 import { useTheme } from "../hooks/theme";
+import { AllStyleProps } from "../types/style";
+import { STYLE_CONVERSIONS } from "../constants/styleConversions";
 
 interface CreateComponentArgs<T> {
   defaultHtml?: keyof React.ReactHTML;
@@ -15,9 +17,12 @@ type CreateComponentDefaultProps<T = {}> = {
   [K in keyof T]?: T[K];
 };
 
-type ComponentProps<T> = { [K in keyof T]?: T[K] } & {
-  as?: keyof React.ReactHTML;
-};
+type ComponentProps<T> = React.HTMLProps<HTMLElement> &
+  { [K in keyof T]?: T[K] } & {
+    as?: keyof React.ReactHTML;
+  };
+
+type StyleProps = { [K in keyof AllStyleProps]?: AllStyleProps[K] };
 
 export const createComponent = <T extends {}>({
   defaultHtml = "div",
@@ -27,13 +32,16 @@ export const createComponent = <T extends {}>({
   const Component: React.FC<ComponentProps<T>> = ({
     children,
     as = defaultHtml,
+    className: _className,
     ...props
   }) => {
     const { theme } = useTheme();
 
     // console.log({ theme });
 
-    const styles = props;
+    const [styles, htmlAttributes] = seperateStylePropsFromHTMLAttributes(
+      props
+    );
 
     // final styles with default styles applied
     // apply default if missing style prop else override
@@ -52,26 +60,52 @@ export const createComponent = <T extends {}>({
       // generate rule hash -> same rule objects should have the same hash
       const ruleHash = hash(cssRule);
 
-      let className: string;
+      let className = _className ? _className : "";
       const isExistingStyle = StyleStore.isExistingStyle(ruleHash);
 
       if (isExistingStyle) {
         // style exists -> grab classname and add to component
-        className = StyleStore.getClassName(ruleHash)!;
+        className += StyleStore.getClassName(ruleHash)!;
       } else {
         // new style -> insert new css rule + generate new classname
-        className = classNamePrefix
+        className += classNamePrefix
           ? StyleStore.generateClassName(classNamePrefix)
           : StyleStore.generateClassName();
         StyleStore.insertClassName(ruleHash, className);
         CSSService.insertCSSRuleByClassName(className, cssRule);
       }
 
-      return React.createElement(as, { className }, children);
+      return React.createElement(
+        as,
+        { ...htmlAttributes, className },
+        children
+      );
     }
 
-    return React.createElement(as, {}, children);
+    return React.createElement(
+      as,
+      { ...htmlAttributes, className: _className },
+      children
+    );
   };
 
   return Component;
 };
+
+function seperateStylePropsFromHTMLAttributes(
+  props: Object
+): [StyleProps, React.AllHTMLAttributes<HTMLElement>] {
+  let styleProps: any = {};
+  let htmlAttributes: any = {};
+
+  for (const [key, value] of Object.entries(props)) {
+    if (isStyleProp(key)) styleProps[key] = value;
+    else htmlAttributes[key] = value;
+  }
+
+  function isStyleProp(prop: string): boolean {
+    return prop in STYLE_CONVERSIONS;
+  }
+
+  return [styleProps, htmlAttributes];
+}

@@ -119,23 +119,15 @@ export type Theme = {
   };
 
   font: {
-    12: string;
-    14: string;
-    16: string;
-    18: string;
-    20: string;
-    24: string;
-    28: string;
-    32: string;
-    36: string;
-    42: string;
-    48: string;
-    54: string;
-    60: string;
-    68: string;
-    76: string;
-    84: string;
-    92: string;
+    xs: string;
+    sm: string;
+    base: string;
+    h6: string;
+    h5: string;
+    h4: string;
+    h3: string;
+    h2: string;
+    h1: string;
   };
 };
 
