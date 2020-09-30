@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Grid, BorderBox, Box, Button } from "./components";
+import { Text, Grid, BorderBox, Box, Button, Input } from "./components";
 import { useTheme } from "./hooks/theme";
 
 const App: React.FC = () => {
@@ -27,9 +27,15 @@ const App: React.FC = () => {
 
   return (
     <div style={{ width: "100%" }}>
+      <Input
+        onChange={() => {
+          console.log("on change");
+        }}
+      />
       <Text
+        className="asdf"
         as="input"
-        fontSize="base"
+        padding={100}
         onChange={(e) => {
           console.log((e.target as HTMLInputElement).value);
         }}

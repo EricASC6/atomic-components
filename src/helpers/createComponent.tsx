@@ -60,24 +60,28 @@ export const createComponent = <T extends {}>({
       // generate rule hash -> same rule objects should have the same hash
       const ruleHash = hash(cssRule);
 
-      let className = _className ? _className : "";
+      let className: string;
       const isExistingStyle = StyleStore.isExistingStyle(ruleHash);
 
       if (isExistingStyle) {
         // style exists -> grab classname and add to component
-        className += StyleStore.getClassName(ruleHash)!;
+        className = StyleStore.getClassName(ruleHash)!;
       } else {
         // new style -> insert new css rule + generate new classname
-        className += classNamePrefix
+        className = classNamePrefix
           ? StyleStore.generateClassName(classNamePrefix)
           : StyleStore.generateClassName();
+
         StyleStore.insertClassName(ruleHash, className);
+
         CSSService.insertCSSRuleByClassName(className, cssRule);
       }
 
+      const finalClassName = className + (_className ? " " + _className : "");
+
       return React.createElement(
         as,
-        { ...htmlAttributes, className },
+        { ...htmlAttributes, className: finalClassName },
         children
       );
     }

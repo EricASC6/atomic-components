@@ -63,6 +63,8 @@ export const CSSService = (() => {
 
       let rule = `.${className} { ${cssRuleStr} }`;
 
+      console.log(rule);
+
       this.styleSheet.insertRule(rule);
     }
   }
