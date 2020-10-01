@@ -1,5 +1,5 @@
 {
-  "name": "atomic-components",
+  "name": "@echemistry123/atomic-components",
   "version": "0.1.0",
   "types": "dist/@types/index.d.ts",
   "main": "dist/index.js",
