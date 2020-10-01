@@ -2,17 +2,17 @@ import React, { createContext, useState } from "react";
 import { Theme } from "../types/theme";
 import { DEFAULT_THEME } from "../constants/theme";
 
-type ThemeValue = {
+export type ThemeValue = {
   [K in keyof Theme]: Theme[K] & { [prop: string]: any };
 } & { [prop: string]: any };
 
-type ThemeOptions = {
+export type ThemeOptions = {
   [K in keyof Theme]?: {
     [T in keyof Theme[K]]?: string;
   } & { [prop: string]: any };
 } & { [prop: string]: any };
 
-interface ThemeContextValue {
+export interface ThemeContextValue {
   theme: ThemeValue;
   changeTheme: (theme: ThemeOptions) => any;
 }

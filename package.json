@@ -1,33 +1,21 @@
 {
-  "name": "ec-components",
+  "name": "atomic-components",
   "version": "0.1.0",
-  "private": true,
   "types": "dist/@types/index.d.ts",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "dependencies": {
     "object-hash": "^2.0.3",
     "uniqid": "^5.2.0"
   },
   "scripts": {
+    "prepublish": "npm run build",
     "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
+    "build": "tsc",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
