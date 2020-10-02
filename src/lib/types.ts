@@ -151,9 +151,9 @@ export interface ThemeContextValue {
   changeTheme: (theme: ThemeOptions) => void;
 }
 
-type ColorTheme<T> = keyof Theme["colors"] | T;
-type SpacingTheme<T> = keyof Theme["spacing"] | number | T;
-type FontTheme<T> = keyof Theme["font"] | number | T;
+type ColorTheme<T> = keyof RequiredTheme["colors"] | (T & {});
+type SpacingTheme<T> = keyof RequiredTheme["spacing"] | number | (T & {});
+type FontTheme<T> = keyof RequiredTheme["font"] | number | (T & {});
 
 // Style Props
 export interface IBorderProps {
