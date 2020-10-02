@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Box, ThemeProvider, Text } from "./lib";
+import { Box, ThemeProvider, Text } from "../dist";
 
 const root = document.getElementById("root");
 

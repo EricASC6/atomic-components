@@ -1,5 +1,5 @@
 {
-  "name": "@echem/atomic-components",
+  "name": "atomic-components",
   "version": "0.1.1",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -34,6 +34,10 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3",
     "typescript": "^3.9.7"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "browserslist": {
     "production": [
