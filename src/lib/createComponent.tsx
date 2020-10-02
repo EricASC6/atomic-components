@@ -9,27 +9,25 @@ import { STYLE_CONVERSIONS } from "./constants/styleConversions";
 
 interface CreateComponentArgs<T> {
   defaultHtml?: keyof React.ReactHTML;
-  defaultProps?: CreateComponentDefaultProps<T>;
+  defaultProps?: Partial<T>;
   classNamePrefix?: string;
 }
 
-type CreateComponentDefaultProps<T = {}> = {
-  [K in keyof T]?: T[K];
-};
-
-type ComponentProps<T> = React.HTMLProps<HTMLElement> &
-  { [K in keyof T]?: T[K] } & {
+export type ComponentProps<T> = React.HTMLProps<HTMLElement> &
+  Partial<T> & {
     as?: keyof React.ReactHTML;
   };
 
-type StyleProps = { [K in keyof AllStyleProps]?: AllStyleProps[K] };
+type StyleProps = Partial<AllStyleProps>;
 
 export const createComponent = <T extends {}>({
   defaultHtml = "div",
   defaultProps = {},
   classNamePrefix,
-}: CreateComponentArgs<T> = {}) => {
-  const Component: React.FC<ComponentProps<T>> = ({
+}: CreateComponentArgs<T>) => {
+  type Props = ComponentProps<T>;
+
+  const Component: React.FC<Props> = ({
     children,
     as = defaultHtml,
     className: _className,

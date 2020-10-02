@@ -1,3 +1,5 @@
+import { Properties } from "csstype";
+
 // Theme
 type RequiredTheme = {
   colors: {
@@ -153,140 +155,140 @@ type FontTheme<T> = keyof RequiredTheme["font"] | number | (T & {});
 
 // Style Props
 export interface IBorderProps {
-  border: React.CSSProperties["border"];
-  borderWidth: React.CSSProperties["borderWidth"];
-  borderStyle: React.CSSProperties["borderStyle"];
-  borderColor: ColorTheme<React.CSSProperties["borderColor"]>;
-  borderRadius: React.CSSProperties["borderRadius"];
-  borderTop: React.CSSProperties["borderTop"];
-  borderRight: React.CSSProperties["borderRight"];
-  borderBottom: React.CSSProperties["borderBottom"];
-  borderLeft: React.CSSProperties["borderLeft"];
-  borderTopWidth: React.CSSProperties["borderTopWidth"];
-  borderTopStyle: React.CSSProperties["borderTopColor"];
-  borderTopColor: ColorTheme<React.CSSProperties["borderTopColor"]>;
-  borderRightWidth: React.CSSProperties["borderRightWidth"];
-  borderRightStyle: React.CSSProperties["borderRightStyle"];
-  borderRightColor: ColorTheme<React.CSSProperties["borderRightColor"]>;
-  borderBottomWidth: React.CSSProperties["borderBottomWidth"];
-  borderBottomStyle: React.CSSProperties["borderBottomStyle"];
-  borderBottomColor: ColorTheme<React.CSSProperties["borderBottomColor"]>;
-  borderLeftWidth: React.CSSProperties["borderLeftWidth"];
-  borderLeftStyle: React.CSSProperties["borderLeftStyle"];
-  borderLeftColor: ColorTheme<React.CSSProperties["borderLeftColor"]>;
-  borderX: React.CSSProperties["border"];
-  borderY: React.CSSProperties["border"];
+  border: Properties["border"];
+  borderWidth: Properties["borderWidth"];
+  borderStyle: Properties["borderStyle"];
+  borderColor: ColorTheme<Properties["borderColor"]>;
+  borderRadius: Properties["borderRadius"];
+  borderTop: Properties["borderTop"];
+  borderRight: Properties["borderRight"];
+  borderBottom: Properties["borderBottom"];
+  borderLeft: Properties["borderLeft"];
+  borderTopWidth: Properties["borderTopWidth"];
+  borderTopStyle: Properties["borderTopColor"];
+  borderTopColor: ColorTheme<Properties["borderTopColor"]>;
+  borderRightWidth: Properties["borderRightWidth"];
+  borderRightStyle: Properties["borderRightStyle"];
+  borderRightColor: ColorTheme<Properties["borderRightColor"]>;
+  borderBottomWidth: Properties["borderBottomWidth"];
+  borderBottomStyle: Properties["borderBottomStyle"];
+  borderBottomColor: ColorTheme<Properties["borderBottomColor"]>;
+  borderLeftWidth: Properties["borderLeftWidth"];
+  borderLeftStyle: Properties["borderLeftStyle"];
+  borderLeftColor: ColorTheme<Properties["borderLeftColor"]>;
+  borderX: Properties["border"];
+  borderY: Properties["border"];
 
-  borderTopLeftRadius: React.CSSProperties["borderTopLeftRadius"];
-  borderTopRightRadius: React.CSSProperties["borderTopRightRadius"];
-  borderBottomLeftRadius: React.CSSProperties["borderBottomLeftRadius"];
-  borderBottomRightRadius: React.CSSProperties["borderBottomRightRadius"];
+  borderTopLeftRadius: Properties["borderTopLeftRadius"];
+  borderTopRightRadius: Properties["borderTopRightRadius"];
+  borderBottomLeftRadius: Properties["borderBottomLeftRadius"];
+  borderBottomRightRadius: Properties["borderBottomRightRadius"];
 
-  boxShadow: React.CSSProperties["boxShadow"];
-  textShadow: React.CSSProperties["textShadow"];
+  boxShadow: Properties["boxShadow"];
+  textShadow: Properties["textShadow"];
 }
 
 export interface ICommonProps {
-  color: ColorTheme<React.CSSProperties["color"]>;
-  display: React.CSSProperties["display"];
-  opacity: React.CSSProperties["opacity"];
-  backgroundColor: ColorTheme<React.CSSProperties["backgroundColor"]>;
-  background: ColorTheme<React.CSSProperties["background"]>;
-  bgColor: ColorTheme<React.CSSProperties["backgroundColor"]>;
-  bg: ColorTheme<React.CSSProperties["background"]>;
+  color: ColorTheme<Properties["color"]>;
+  display: Properties["display"];
+  opacity: Properties["opacity"];
+  backgroundColor: ColorTheme<Properties["backgroundColor"]>;
+  background: ColorTheme<Properties["background"]>;
+  bgColor: ColorTheme<Properties["backgroundColor"]>;
+  bg: ColorTheme<Properties["background"]>;
 }
 
 export interface IFlexProps {
-  justifyContent: React.CSSProperties["justifyContent"];
-  alignItems: React.CSSProperties["alignItems"];
-  alignContent: React.CSSProperties["alignContent"];
-  alignSelf: React.CSSProperties["alignSelf"];
-  flexDirection: React.CSSProperties["flexDirection"];
-  flexWrap: React.CSSProperties["flexWrap"];
-  flex: React.CSSProperties["flex"];
-  flexGrow: React.CSSProperties["flexGrow"];
-  flexBasis: React.CSSProperties["flexBasis"];
-  flexShrink: React.CSSProperties["flexShrink"];
-  order: React.CSSProperties["order"];
+  justifyContent: Properties["justifyContent"];
+  alignItems: Properties["alignItems"];
+  alignContent: Properties["alignContent"];
+  alignSelf: Properties["alignSelf"];
+  flexDirection: Properties["flexDirection"];
+  flexWrap: Properties["flexWrap"];
+  flex: Properties["flex"];
+  flexGrow: Properties["flexGrow"];
+  flexBasis: Properties["flexBasis"];
+  flexShrink: Properties["flexShrink"];
+  order: Properties["order"];
 }
 
 export interface IGridProps {
-  gridTemplateColumns: React.CSSProperties["gridTemplateColumns"];
-  gridTemplateRows: React.CSSProperties["gridTemplateRows"];
-  gridColumnStart: React.CSSProperties["gridColumnStart"];
-  gridColumnEnd: React.CSSProperties["gridColumnEnd"];
-  gridRowStart: React.CSSProperties["gridRowStart"];
-  gridRowEnd: React.CSSProperties["gridRowEnd"];
-  gridColumn: React.CSSProperties["gridColumn"];
-  gridRow: React.CSSProperties["gridRow"];
-  columnGap: React.CSSProperties["columnGap"];
-  rowGap: React.CSSProperties["rowGap"];
-  gap: React.CSSProperties["gap"];
-  gridAutoFlow: React.CSSProperties["gridAutoFlow"];
-  gridAutoColumns: React.CSSProperties["gridAutoColumns"];
-  gridAutoRows: React.CSSProperties["gridAutoRows"];
-  gridTemplateAreas: React.CSSProperties["gridTemplateAreas"];
-  gridArea: React.CSSProperties["gridArea"];
+  gridTemplateColumns: Properties["gridTemplateColumns"];
+  gridTemplateRows: Properties["gridTemplateRows"];
+  gridColumnStart: Properties["gridColumnStart"];
+  gridColumnEnd: Properties["gridColumnEnd"];
+  gridRowStart: Properties["gridRowStart"];
+  gridRowEnd: Properties["gridRowEnd"];
+  gridColumn: Properties["gridColumn"];
+  gridRow: Properties["gridRow"];
+  columnGap: Properties["columnGap"];
+  rowGap: Properties["rowGap"];
+  gap: Properties["gap"];
+  gridAutoFlow: Properties["gridAutoFlow"];
+  gridAutoColumns: Properties["gridAutoColumns"];
+  gridAutoRows: Properties["gridAutoRows"];
+  gridTemplateAreas: Properties["gridTemplateAreas"];
+  gridArea: Properties["gridArea"];
 }
 
 export interface ILayoutProps {
-  width: React.CSSProperties["width"];
-  height: React.CSSProperties["height"];
-  size: React.CSSProperties["width"];
-  minWidth: React.CSSProperties["minWidth"];
-  minHeight: React.CSSProperties["minHeight"];
-  maxWidth: React.CSSProperties["maxWidth"];
-  maxHeight: React.CSSProperties["maxHeight"];
+  width: Properties["width"];
+  height: Properties["height"];
+  size: Properties["width"];
+  minWidth: Properties["minWidth"];
+  minHeight: Properties["minHeight"];
+  maxWidth: Properties["maxWidth"];
+  maxHeight: Properties["maxHeight"];
 }
 
 export interface IPositionProps {
-  position: React.CSSProperties["position"];
-  zIndex: React.CSSProperties["zIndex"];
-  top: React.CSSProperties["top"];
-  right: React.CSSProperties["right"];
-  bottom: React.CSSProperties["bottom"];
-  left: React.CSSProperties["left"];
+  position: Properties["position"];
+  zIndex: Properties["zIndex"];
+  top: Properties["top"];
+  right: Properties["right"];
+  bottom: Properties["bottom"];
+  left: Properties["left"];
 }
 
 export interface ISpacingProps {
-  padding: SpacingTheme<React.CSSProperties["padding"]>;
-  paddingTop: SpacingTheme<React.CSSProperties["paddingTop"]>;
-  paddingRight: SpacingTheme<React.CSSProperties["paddingRight"]>;
-  paddingBottom: SpacingTheme<React.CSSProperties["paddingBottom"]>;
-  paddingLeft: SpacingTheme<React.CSSProperties["paddingLeft"]>;
-  paddingX: SpacingTheme<React.CSSProperties["padding"]>;
-  paddingY: SpacingTheme<React.CSSProperties["padding"]>;
-  p: SpacingTheme<React.CSSProperties["padding"]>;
-  pt: SpacingTheme<React.CSSProperties["paddingTop"]>;
-  pr: SpacingTheme<React.CSSProperties["paddingRight"]>;
-  pb: SpacingTheme<React.CSSProperties["paddingBottom"]>;
-  pl: SpacingTheme<React.CSSProperties["paddingLeft"]>;
-  px: SpacingTheme<React.CSSProperties["padding"]>;
-  py: SpacingTheme<React.CSSProperties["padding"]>;
+  padding: SpacingTheme<Properties["padding"]>;
+  paddingTop: SpacingTheme<Properties["paddingTop"]>;
+  paddingRight: SpacingTheme<Properties["paddingRight"]>;
+  paddingBottom: SpacingTheme<Properties["paddingBottom"]>;
+  paddingLeft: SpacingTheme<Properties["paddingLeft"]>;
+  paddingX: SpacingTheme<Properties["padding"]>;
+  paddingY: SpacingTheme<Properties["padding"]>;
+  p: SpacingTheme<Properties["padding"]>;
+  pt: SpacingTheme<Properties["paddingTop"]>;
+  pr: SpacingTheme<Properties["paddingRight"]>;
+  pb: SpacingTheme<Properties["paddingBottom"]>;
+  pl: SpacingTheme<Properties["paddingLeft"]>;
+  px: SpacingTheme<Properties["padding"]>;
+  py: SpacingTheme<Properties["padding"]>;
 
-  margin: SpacingTheme<React.CSSProperties["margin"]>;
-  marginTop: SpacingTheme<React.CSSProperties["marginTop"]>;
-  marginRight: SpacingTheme<React.CSSProperties["marginRight"]>;
-  marginBottom: SpacingTheme<React.CSSProperties["marginBottom"]>;
-  marginLeft: SpacingTheme<React.CSSProperties["marginLeft"]>;
-  marginX: SpacingTheme<React.CSSProperties["margin"]>;
-  marginY: SpacingTheme<React.CSSProperties["margin"]>;
-  m: SpacingTheme<React.CSSProperties["margin"]>;
-  mt: SpacingTheme<React.CSSProperties["marginTop"]>;
-  mr: SpacingTheme<React.CSSProperties["marginRight"]>;
-  mb: SpacingTheme<React.CSSProperties["marginBottom"]>;
-  ml: SpacingTheme<React.CSSProperties["marginLeft"]>;
-  mx: SpacingTheme<React.CSSProperties["margin"]>;
-  my: SpacingTheme<React.CSSProperties["margin"]>;
+  margin: SpacingTheme<Properties["margin"]>;
+  marginTop: SpacingTheme<Properties["marginTop"]>;
+  marginRight: SpacingTheme<Properties["marginRight"]>;
+  marginBottom: SpacingTheme<Properties["marginBottom"]>;
+  marginLeft: SpacingTheme<Properties["marginLeft"]>;
+  marginX: SpacingTheme<Properties["margin"]>;
+  marginY: SpacingTheme<Properties["margin"]>;
+  m: SpacingTheme<Properties["margin"]>;
+  mt: SpacingTheme<Properties["marginTop"]>;
+  mr: SpacingTheme<Properties["marginRight"]>;
+  mb: SpacingTheme<Properties["marginBottom"]>;
+  ml: SpacingTheme<Properties["marginLeft"]>;
+  mx: SpacingTheme<Properties["margin"]>;
+  my: SpacingTheme<Properties["margin"]>;
 }
 
 export interface ITypographyProps {
-  fontFamily: React.CSSProperties["fontFamily"];
-  fontSize: FontTheme<React.CSSProperties["fontSize"]>;
-  fontWeight: React.CSSProperties["fontWeight"];
-  lineHeight: React.CSSProperties["lineHeight"];
-  letterSpacing: React.CSSProperties["letterSpacing"];
-  textAlign: React.CSSProperties["textAlign"];
+  fontFamily: Properties["fontFamily"];
+  fontSize: FontTheme<Properties["fontSize"]>;
+  fontWeight: Properties["fontWeight"];
+  lineHeight: Properties["lineHeight"];
+  letterSpacing: Properties["letterSpacing"];
+  textAlign: Properties["textAlign"];
 }
 
 export type AllStyleProps = IBorderProps &
@@ -323,12 +325,3 @@ export type ComponentProps<T = {}> = React.HTMLProps<HTMLElement> &
   { [K in keyof T]?: T[K] } & {
     as?: keyof React.ReactHTML;
   };
-
-// Component Types
-export type BorderBox = React.FC<ComponentProps<BorderBoxProps>>;
-export type Box = React.FC<ComponentProps<BoxProps>>;
-export type Button = React.FC<ComponentProps<ButtonProps>>;
-export type Grid = React.FC<ComponentProps<GridProps>>;
-export type Input = React.FC<ComponentProps<InputProps>>;
-export type Position = React.FC<ComponentProps<PositionProps>>;
-export type Text = React.FC<ComponentProps<TextProps>>;
