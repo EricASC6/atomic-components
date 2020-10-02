@@ -1,6 +1,4 @@
-import { createComponent } from "../helpers/createComponent";
-import { Common, Spacing, Flex, Layout, Grid } from "../types";
-
-export type BoxProps = Common & Spacing & Flex & Layout & Grid;
+import { createComponent } from "../createComponent";
+import { BoxProps } from "../types";
 
 export const Box = createComponent<BoxProps>({ classNamePrefix: "BOX" });

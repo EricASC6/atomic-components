@@ -1,8 +1,7 @@
-import { createComponent } from "../helpers/createComponent";
-import { Common, Spacing, Flex, Layout, Grid, Typography } from "../types";
-
-export type ButtonProps = Common & Spacing & Flex & Layout & Grid & Typography;
+import { createComponent } from "../createComponent";
+import { ButtonProps } from "../types";
 
 export const Button = createComponent<ButtonProps>({
   defaultHtml: "button",
+  classNamePrefix: "BUTTON",
 });

@@ -1,25 +1,10 @@
 import React, { createContext, useState } from "react";
-import { Theme } from "../types/theme";
+import { ThemeContextValue, ThemeOptions } from "../types";
 import { DEFAULT_THEME } from "../constants/theme";
-
-export type ThemeValue = {
-  [K in keyof Theme]: Theme[K] & { [prop: string]: any };
-} & { [prop: string]: any };
-
-export type ThemeOptions = {
-  [K in keyof Theme]?: {
-    [T in keyof Theme[K]]?: string;
-  } & { [prop: string]: any };
-} & { [prop: string]: any };
-
-export interface ThemeContextValue {
-  theme: ThemeValue;
-  changeTheme: (theme: ThemeOptions) => any;
-}
 
 export const ThemeContext = createContext<ThemeContextValue>({
   theme: DEFAULT_THEME,
-  changeTheme: () => {
+  changeTheme: (theme: ThemeOptions) => {
     return;
   },
 });
@@ -38,7 +23,7 @@ export const ThemeProvider: React.FC<Props> = ({
 
   const [theme, setTheme] = useState(themeValue);
 
-  console.log(theme);
+  // console.log(theme);
 
   const changeTheme = (theme: ThemeOptions) => {
     setTheme((prevTheme) => deepMerge(prevTheme, theme));

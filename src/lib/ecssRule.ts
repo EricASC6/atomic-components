@@ -1,6 +1,5 @@
-import { STYLE_CONVERSIONS } from "../constants/styleConversions";
-import { AllStyleProps } from "../types/style";
-import { Theme } from "../types/theme";
+import { STYLE_CONVERSIONS } from "./constants/styleConversions";
+import { AllStyleProps, Theme } from "./types";
 
 type CSSProp = keyof AllStyleProps;
 
@@ -36,16 +35,16 @@ export default class ECSSRule {
       const themeName = cssPropData.theme?.name!;
       const themeField = theme![themeName];
 
-      console.log(themeField);
-      console.log(Object.keys(themeField));
+      // console.log(themeField);
+      // console.log(Object.keys(themeField));
 
       // spacing theme fields support both strs and numbers but the keys are strs
       // convert value to avoid failing the isThemeValue test
       const valueStr = new String(value).toString();
       const isThemeValue = Object.keys(themeField).includes(valueStr);
 
-      console.log(value);
-      console.log(isThemeValue);
+      // console.log(value);
+      // console.log(isThemeValue);
 
       val = isThemeValue ? themeField[value as keyof typeof themeField] : value;
     }

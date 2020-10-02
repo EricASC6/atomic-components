@@ -1,7 +1,5 @@
-import { createComponent } from "../helpers/createComponent";
-import { Common, Layout, Grid as IGrid } from "../types";
-
-export type GridProps = Common & Layout & IGrid;
+import { createComponent } from "../createComponent";
+import { GridProps } from "../types";
 
 export const Grid = createComponent<GridProps>({
   defaultProps: {

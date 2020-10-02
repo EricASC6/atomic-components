@@ -1,7 +1,5 @@
-import { createComponent } from "../helpers/createComponent";
-import { Common, Spacing, Border, Flex, Layout } from "../types";
-
-export type BorderBoxProps = Common & Spacing & Border & Flex & Layout;
+import { createComponent } from "../createComponent";
+import { BorderBoxProps } from "../types";
 
 export const BorderBox = createComponent<BorderBoxProps>({
   classNamePrefix: "BORDER_BOX",

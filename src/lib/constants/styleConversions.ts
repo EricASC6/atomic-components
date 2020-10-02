@@ -1,5 +1,4 @@
-import { AllStyleProps } from "../types/style";
-import { Theme } from "../types/theme";
+import { AllStyleProps, Theme } from "../types";
 
 type StyleConversion = {
   [K in keyof AllStyleProps]: {

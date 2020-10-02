@@ -1,11 +1,11 @@
 import React from "react";
-import { createStyleList } from "./styles";
-import { CSSService } from "../services/css";
-import { StyleStore } from "../services/styleStore";
+import { createStyleList } from "./helpers/styles";
+import { CSSService } from "./css";
+import { StyleStore } from "./styleStore";
 import hash from "object-hash";
-import { useTheme } from "../hooks/theme";
-import { AllStyleProps } from "../types/style";
-import { STYLE_CONVERSIONS } from "../constants/styleConversions";
+import { useTheme } from "./hooks/theme";
+import { AllStyleProps } from "./types";
+import { STYLE_CONVERSIONS } from "./constants/styleConversions";
 
 interface CreateComponentArgs<T> {
   defaultHtml?: keyof React.ReactHTML;
@@ -55,7 +55,7 @@ export const createComponent = <T extends {}>({
     const emptyCssRule = CSSService.isCSSRuleEmpty(cssRule);
 
     if (!emptyCssRule) {
-      console.log({ cssRule });
+      // console.log({ cssRule });
 
       // generate rule hash -> same rule objects should have the same hash
       const ruleHash = hash(cssRule);

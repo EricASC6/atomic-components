@@ -1,6 +1,5 @@
-import ECSSRule from "../models/ecssRule";
-import { AllStyleProps } from "../types/style";
-import { Theme } from "../types/theme";
+import ECSSRule from "./ecssRule";
+import { Theme, AllStyleProps } from "./types";
 
 export type CSSRule = {
   [K in keyof AllStyleProps]?: AllStyleProps[K];
@@ -62,7 +61,7 @@ export class CSS {
 
     let rule = `.${className} { ${cssRuleStr} }`;
 
-    console.log(rule);
+    // console.log(rule);
 
     this.styleSheet.insertRule(rule);
   }

@@ -1,1 +1,7 @@
-declare module "@echemistry123/atomic-components" {}
+declare module "@echem/atomic-components" {
+
+    export 
+
+
+
+}
