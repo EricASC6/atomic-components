@@ -15,10 +15,6 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "allowJs": false,
-    "noEmit": false,
-    "declaration": true,
-    "declarationMap": true
-  },
-  "include": ["src/lib"],
-  "exclude": ["public"]
+    "declaration": true
+  }
 }

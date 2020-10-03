@@ -1,4 +1,6 @@
-import { Properties } from "csstype";
+import React from "react";
+
+type Properties = React.CSSProperties;
 
 // Theme
 type RequiredTheme = {
@@ -322,6 +324,6 @@ export type PositionProps = IPositionProps & BoxProps;
 export type TextProps = ICommonProps & ITypographyProps & ISpacingProps;
 
 export type ComponentProps<T = {}> = React.HTMLProps<HTMLElement> &
-  { [K in keyof T]?: T[K] } & {
+  Partial<T> & {
     as?: keyof React.ReactHTML;
   };

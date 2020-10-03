@@ -2,21 +2,16 @@ import React from "react";
 import { createStyleList } from "./helpers/styles";
 import { CSSService } from "./css";
 import { StyleStore } from "./styleStore";
-import hash from "object-hash";
 import { useTheme } from "./hooks/theme";
-import { AllStyleProps } from "./types";
+import { AllStyleProps, ComponentProps } from "./types";
 import { STYLE_CONVERSIONS } from "./constants/styleConversions";
+import hash from "object-hash";
 
 interface CreateComponentArgs<T> {
   defaultHtml?: keyof React.ReactHTML;
   defaultProps?: Partial<T>;
   classNamePrefix?: string;
 }
-
-export type ComponentProps<T> = React.HTMLProps<HTMLElement> &
-  Partial<T> & {
-    as?: keyof React.ReactHTML;
-  };
 
 type StyleProps = Partial<AllStyleProps>;
 
@@ -25,9 +20,7 @@ export const createComponent = <T extends {}>({
   defaultProps = {},
   classNamePrefix,
 }: CreateComponentArgs<T>) => {
-  type Props = ComponentProps<T>;
-
-  const Component: React.FC<Props> = ({
+  const Component: React.FC<ComponentProps<T>> = ({
     children,
     as = defaultHtml,
     className: _className,
