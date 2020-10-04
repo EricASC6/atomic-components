@@ -1,7 +1,7 @@
 {
   "name": "@fructify/atomic-components",
-  "version": "0.1.1",
-  "types": "dist/lib/index.d.ts",
+  "version": "0.1.3",
+  "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "dependencies": {
     "csstype": "^3.0.3",

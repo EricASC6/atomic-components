@@ -5,6 +5,8 @@ module.exports = {
   output: {
     filename: "index.js",
     path: path.resolve(__dirname, "dist"),
+    libraryTarget: "umd",
+    library: "@fructify/atomic-components",
   },
   module: {
     rules: [
@@ -16,6 +18,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx", ".js", ".d.ts"],
   },
 };
