@@ -314,6 +314,7 @@ export type BoxProps = ICommonProps &
   IGridProps &
   ILayoutProps;
 export type ButtonProps = ITypographyProps & BoxProps;
+export type FlexProps = BoxProps;
 export type GridProps = ICommonProps & ILayoutProps & IGridProps;
 export type InputProps = ICommonProps &
   IBorderProps &

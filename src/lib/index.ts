@@ -2,6 +2,7 @@ export {
   BorderBox,
   Box,
   Button,
+  Flex,
   Grid,
   Input,
   Position,
