@@ -20,71 +20,66 @@ export const createComponent = <T extends {}>({
   defaultProps = {},
   classNamePrefix,
 }: CreateComponentArgs<T>) => {
-  const Component: React.FC<ComponentProps<T>> = ({
-    children,
-    as = defaultHtml,
-    className: _className,
-    ...props
-  }) => {
-    const { theme } = useTheme();
+  return React.forwardRef<HTMLElement, ComponentProps<T>>(
+    ({ children, as = defaultHtml, className: _className, ...props }, ref) => {
+      const { theme } = useTheme();
 
-    // console.log({ theme });
+      // console.log({ theme });
 
-    const [styles, htmlAttributes] = seperateStylePropsFromHTMLAttributes(
-      props
-    );
+      const [styles, htmlAttributes] = seperateStylePropsFromHTMLAttributes(
+        props
+      );
 
-    // final styles with default styles applied
-    // apply default if missing style prop else override
-    const finalStyles = Object.assign({}, defaultProps, styles);
+      // final styles with default styles applied
+      // apply default if missing style prop else override
+      const finalStyles = Object.assign({}, defaultProps, styles);
 
-    // console.log({ finalStyles });
+      // console.log({ finalStyles });
 
-    const styleList = createStyleList(finalStyles);
+      const styleList = createStyleList(finalStyles);
 
-    const cssRule = CSSService.createCSSRule(styleList, theme);
-    const emptyCssRule = CSSService.isCSSRuleEmpty(cssRule);
+      const cssRule = CSSService.createCSSRule(styleList, theme);
+      const emptyCssRule = CSSService.isCSSRuleEmpty(cssRule);
 
-    if (!emptyCssRule) {
-      // console.log({ cssRule });
+      if (!emptyCssRule) {
+        // console.log({ cssRule });
 
-      // generate rule hash -> same rule objects should have the same hash
-      const ruleHash = hash(cssRule);
+        // generate rule hash -> same rule objects should have the same hash
+        const ruleHash = hash(cssRule);
 
-      let className: string;
-      const isExistingStyle = StyleStore.isExistingStyle(ruleHash);
+        let className: string;
+        const isExistingStyle = StyleStore.isExistingStyle(ruleHash);
 
-      if (isExistingStyle) {
-        // style exists -> grab classname and add to component
-        className = StyleStore.getClassName(ruleHash)!;
-      } else {
-        // new style -> insert new css rule + generate new classname
-        className = classNamePrefix
-          ? StyleStore.generateClassName(classNamePrefix)
-          : StyleStore.generateClassName();
+        if (isExistingStyle) {
+          // style exists -> grab classname and add to component
+          className = StyleStore.getClassName(ruleHash)!;
+        } else {
+          // new style -> insert new css rule + generate new classname
+          className = classNamePrefix
+            ? StyleStore.generateClassName(classNamePrefix)
+            : StyleStore.generateClassName();
 
-        StyleStore.insertClassName(ruleHash, className);
+          StyleStore.insertClassName(ruleHash, className);
 
-        CSSService.insertCSSRuleByClassName(className, cssRule);
+          CSSService.insertCSSRuleByClassName(className, cssRule);
+        }
+
+        const finalClassName = className + (_className ? " " + _className : "");
+
+        return React.createElement(
+          as,
+          { ...htmlAttributes, className: finalClassName, ref },
+          children
+        );
       }
-
-      const finalClassName = className + (_className ? " " + _className : "");
 
       return React.createElement(
         as,
-        { ...htmlAttributes, className: finalClassName },
+        { ...htmlAttributes, className: _className, ref },
         children
       );
     }
-
-    return React.createElement(
-      as,
-      { ...htmlAttributes, className: _className },
-      children
-    );
-  };
-
-  return Component;
+  );
 };
 
 function seperateStylePropsFromHTMLAttributes(
