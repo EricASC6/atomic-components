@@ -307,6 +307,7 @@ export type CSSRule = {
 };
 
 // Component Props
+export type ElementProps = AllStyleProps;
 export type BorderBoxProps = IBorderProps & BoxProps;
 export type BoxProps = ICommonProps &
   ISpacingProps &

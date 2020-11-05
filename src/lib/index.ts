@@ -1,4 +1,5 @@
 export {
+  Element,
   BorderBox,
   Box,
   Button,

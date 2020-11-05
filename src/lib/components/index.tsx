@@ -1,3 +1,4 @@
+export { Element } from "./Element";
 export { BorderBox } from "./BorderBox";
 export { Box } from "./Box";
 export { Button } from "./Button";
